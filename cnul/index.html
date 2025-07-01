@@ -13,6 +13,20 @@
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
+     
+
+  .hero-video-container {
+    width: 100% !important;
+    max-width: none !important; /* Assurez-vous qu'il n'y a pas de largeur maximale */
+    height: auto !important; /* Ajustez automatiquement la hauteur */
+  }
+
+  .hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Changer à cover pour éviter le crop */
+    border-radius: 8px !important; /* Si nécessaire pour les coins arrondis */
+  }
       .feature-card {
         transition: all 0.3s ease;
       }
@@ -40,19 +54,18 @@
         min-height: calc(80vh - 80px);
         display: flex;
         align-items: flex-start;
-        padding-top: 8rem;
+        padding-top: 5rem;
         justify-content: center;
       }
       .hero-section.visible {
         filter: blur(0);
       }
+       
       .download-btn {
         transition: all 0.3s ease;
         border-radius: 25px;
       }
-      .download-btn:hover {
-        background-color: #d11258;
-      }
+      
       .download-btn svg {
         transition: transform 0.3s ease;
       }
@@ -63,8 +76,8 @@
         background-color: #f8f9fa;
       }
       .full-width-section {
-        margin-left: calc(-50vw + 50%);
-        margin-right: calc(-50vw + 50%);
+        margin-left: calc(-50vw + 25%);
+        margin-right: calc(-50vw + 25%);
         padding: 4rem 0;
       }
       .footer-section {
@@ -92,9 +105,114 @@
       a {
         text-decoration: none;
       }
-      a:hover {
-        color: #000000;
-      }
+     
+      /* Animations pour les liens download-btn */
+a.download-btn {
+  transition: all 0.3s ease;
+  display: inline-flex;
+  text-decoration: none;
+}
+
+a.download-btn:hover {
+  background-color: #be1251 !important;
+  transform: none;
+}
+
+a.download-btn:hover svg {
+  transform: translateY(3px);
+}
+
+#access:hover{
+  background-color: #d3d5d8 !important;
+}
+/* Pour le bouton gris */
+a.download-btn.bg-\[#f0f2f5\]:hover {
+  background-color: #d3d5d8 !important;
+}
+
+    /* Media queries consolidées */
+@media (max-width: 640px) {
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  .section-spacing {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .hero-row {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+  }
+  .hero-content-col {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hero-video-container {
+    width: 100% !important; /* Assurez-vous que la largeur est à 100% */
+    max-width: none !important; /* Supprimez la largeur maximale */
+    height: auto !important; /* Ajustez la hauteur automatiquement */
+    aspect-ratio: 16/9 !important; /* Gardez le ratio d'aspect pour la vidéo */
+    border-radius: 8px !important;
+    margin: 0 !important; /* Pas de marge */
+  }
+
+  .hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; /* Changez ici à 'cover' pour éviter le recadrage */
+    border-radius: 8px !important; /* Assurez-vous que les bords sont arrondis */
+  }
+
+  .hero-section {
+    min-height: auto !important; /* Assurez-vous que la hauteur minimale est automatique */
+    padding-top: 1rem !important; /* Réduire le rembourrage supérieur */
+    padding-bottom: 0.5rem !important; /* Réduire le rembourrage inférieur */
+  }
+    .px-40 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Réduction de l'espace vertical du container principal */
+  .layout-content-container {
+    padding-top: 0 !important;
+  }
+  
+  /* Hero section encore plus compacte */
+  .hero-section {
+    min-height: auto !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+
+}
+
+@media (min-width: 641px) and (max-width: 900px) {
+  .hero-row {
+    flex-direction: column !important;
+    gap: 2rem !important;
+    align-items: center !important;
+  }
+  .hero-content-col {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .hero-video-container {
+    width: 100% !important;
+    max-width: 500px !important;
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+  }
+  .hero-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+  }
+}
     </style>
     <script>
       document.addEventListener('DOMContentLoaded', function() {
@@ -134,45 +252,44 @@
                 <a class="text-[#111418] text-sm font-medium leading-normal hover:text-[#E61365] transition-colors" href="#faq">FAQs</a>
               </div>
             </div>
-            <button class="download-btn flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden h-10 px-4 bg-[#E61365] text-white text-sm font-bold leading-normal tracking-[0.015em]">
-              <span class="truncate">Download CSV</span>
-            </button>
+           <a href="https://atomotion.gumroad.com/" class="download-btn flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden h-10 px-4 bg-[#E61365] text-white text-sm font-bold leading-normal tracking-[0.015em]">
+  <span class="truncate">Download CSV</span>
+</a>
           </div>
         </header>
 
         <div class="px-40 flex flex-1 justify-center py-5 mt-20">
           <div class="layout-content-container flex flex-col max-w-[1200px] flex-1">
             <div id="hero" class="@container section-spacing hero-section">
-              <div class="flex justify-between items-center w-full gap-10 px-4">
-                <div class="flex flex-col gap-6 text-left max-w-[600px]">
+              <div class="flex justify-between items-center w-full gap-10 px-4 hero-row">
+                <div class="flex flex-col gap-6 text-left max-w-[600px] hero-content-col">
                   <h1 class="text-[#111418] text-6xl font-black leading-none tracking-[-0.033em] @[480px]:text-7xl @[480px]:font-black @[480px]:leading-none @[480px]:tracking-[-0.033em]">
                     Find <span class="profitable-text">Profitable</span><br/> Templates to Build.
                   </h1>
                   <h2 class="text-[#111418] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                    Discover what's missing in the Notion ecosystem → validated by real user searches, comments, and posts.
+                    Discover what's missing in the Notion ecosystem → validated by <b>real</b> user searches, comments, and posts.
                   </h2>
-                  <button class="download-btn flex w-[200px] cursor-pointer items-center justify-center gap-2 overflow-hidden h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#E61365] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
-                    <span class="truncate">Download CSV</span>
+                  <a href="https://atomotion.gumroad.com/" class="download-btn flex w-[200px] cursor-pointer items-center justify-center gap-2 overflow-hidden h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#E61365] text-white text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]">
+  <span class="truncate">Download CSV</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
                       <path d="M224,152v56a16,16,0,0,1-16,16H48a16,16,0,0,1-16-16V152a8,8,0,0,1,16,0v56H208V152a8,8,0,0,1,16,0Zm-101.66,5.66a8,8,0,0,0,11.32,0l40-40a8,8,0,0,0-11.32-11.32L136,132.69V40a8,8,0,0,0-16,0v92.69L93.66,106.34a8,8,0,0,0-11.32,11.32Z"></path>
                     </svg>
-                  </button>
+                  </a>
                 </div>
-                <div class="w-[500px] h-[400px] rounded-lg overflow-hidden">
-                  <video autoplay muted loop playsinline class="w-full h-full object-cover">
-  <source src="1.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-
+                <div class="w-[500px] h-[400px] rounded-lg overflow-hidden hero-video-container">
+                  <video autoplay muted loop playsinline class="w-full h-full object-cover hero-video">
+                    <source src="1.mp4" type="video/mp4" />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
 
             <div id="info" class="section-spacing full-width-section alternate-bg">
               <p class="by-the-way">by the way,</p>
-              <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] section-title pb-3">Why These Ideas Are Interesting</h2>
+              <h2 class="text-[#111418] text-[22px] font-bold leading-tight tracking-[-0.015em] section-title pb-3">Why are these ideas interesting ?</h2>
               <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4 max-w-[720px] mx-auto">
-                Our database is not just a list of ideas; it's a curated collection of concepts with proven market potential. Each idea is evaluated based on current trends, user
+                Our database is not just a list of ideas, it's a curated collection of concepts with proven market potential. Each idea is evaluated based on current trends, user
                 needs, and market gaps, ensuring you focus on templates that are likely to attract users and drive sales.
               </p>
             </div>
@@ -225,13 +342,13 @@
                       <p class="text-[#60758a] text-sm font-normal leading-normal">Dataset</p>
                       <p class="text-[#111418] text-base font-bold leading-tight">Access a Comprehensive Dataset</p>
                       <p class="text-[#60758a] text-sm font-normal leading-normal">
-                        Gain access to a detailed CSV file containing a wide range of Notion template ideas, complete with market insights and potential user segments. This dataset
+                        Gain access to a detailed .csv file containing a wide range of Notion Template ideas, complete with market insights and potential user segments. This dataset
                         is your roadmap to creating successful templates.
                       </p>
                     </div>
-                    <button class="download-btn flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit">
-                      <span class="truncate">Access Dataset</span>
-                    </button>
+                    <a id="access" href="https://atomotion.gumroad.com/" class="download-btn flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden h-8 px-4 flex-row-reverse bg-[#f0f2f5] text-[#111418] text-sm font-medium leading-normal w-fit">
+  <span class="truncate">Access Dataset</span>
+</a>
                   </div>
                   <div class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-lg flex-1"
                     style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjOHwrvDy7NUqIriwk_h-Owj-2cKTyaJZKWTyq2t6w6AGPgv0fs3JSnzZs3iAxCuKbmkve0kSNIGY8Uf0BEfga3t0ftBQvqQyRrfa9EuaP20M6XRX5blmIjsfMhKT6WkisEv8aI6N_Q6jizbgvvZ618SxTBIHJLV_5u4P60-aopxIlltKT10yEe8vxfaZ1pNSkBcxP5bZuP4TzO-YXC7p3SMwBM_OzLbWp4pWLSa7hYw_rBsskKeoXu1CdLPtGtITMbI85xyKA7eHC");'
@@ -253,7 +370,7 @@
                     </div>
                   </summary>
                   <p class="text-[#60758a] text-sm font-normal leading-normal pb-2">
-                    The database is provided in CSV format, compatible with most spreadsheet applications and Notion itself.
+                    The database is provided in .csv format, compatible with most spreadsheet applications and Notion itself.
                   </p>
                 </details>
                 <details class="flex flex-col rounded-lg border border-[#dbe0e6] bg-white px-[15px] py-[7px] group">
@@ -266,12 +383,12 @@
                     </div>
                   </summary>
                   <p class="text-[#60758a] text-sm font-normal leading-normal pb-2">
-                    The database is provided in CSV format, compatible with most spreadsheet applications and Notion itself.
+                    The database is continually updated, and ideas selected by users are communicated and updated accordingly.
                   </p>
                 </details>
                 <details class="flex flex-col rounded-lg border border-[#dbe0e6] bg-white px-[15px] py-[7px] group">
                   <summary class="flex cursor-pointer items-center justify-between gap-6 py-2">
-                    <p class="text-[#111418] text-sm font-medium leading-normal">How often is the database updated?</p>
+                    <p class="text-[#111418] text-sm font-medium leading-normal">How can I be sure it's a good purchase?</p>
                     <div class="text-[#111418] faq-arrow group-open:rotate-180" data-icon="CaretDown" data-size="20px" data-weight="regular">
                       <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
                         <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
@@ -279,7 +396,7 @@
                     </div>
                   </summary>
                   <p class="text-[#60758a] text-sm font-normal leading-normal pb-2">
-                    The database is provided in CSV format, compatible with most spreadsheet applications and Notion itself.
+                    The data is scrapped using different tools, on different platforms, and a market analysis is carried out by our team to ensure the quality of the product.
                   </p>
                 </details>
                 <details class="flex flex-col rounded-lg border border-[#dbe0e6] bg-white px-[15px] py-[7px] group">
@@ -292,7 +409,7 @@
                     </div>
                   </summary>
                   <p class="text-[#60758a] text-sm font-normal leading-normal pb-2">
-                    The database is provided in CSV format, compatible with most spreadsheet applications and Notion itself.
+                    Of course, you can send ideas to <b><a href="mailto:contactatomotion@gmail.com">contactatomotion@gmail.com</a></b> and they will be studied and evaluated.
                   </p>
                 </details>
               </div>
