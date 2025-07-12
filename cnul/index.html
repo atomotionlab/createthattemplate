@@ -60,10 +60,12 @@
       }
       .hero-section {
         filter: blur(10px);
+        min-height: calc(80vh - 80px);
         transition: filter 1s ease-out;
         display: flex;
         align-items: flex-start;
         justify-content: center;
+        padding-top: 5rem;
       }
       .hero-section.visible {
         filter: blur(0);
