@@ -61,10 +61,8 @@
       .hero-section {
         filter: blur(10px);
         transition: filter 1s ease-out;
-        min-height: calc(80vh - 80px);
         display: flex;
         align-items: flex-start;
-        padding-top: 5rem;
         justify-content: center;
       }
       .hero-section.visible {
@@ -144,8 +142,8 @@ a.download-btn.bg-\[#f0f2f5\]:hover {
 @media (max-width: 640px) {
   .hero-section {
     min-height: auto !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
   }
   .section-spacing {
     margin-top: 1rem;
@@ -174,12 +172,6 @@ a.download-btn.bg-\[#f0f2f5\]:hover {
     height: 100% !important;
     object-fit: cover !important; /* Changez ici à 'cover' pour éviter le recadrage */
     border-radius: 8px !important; /* Assurez-vous que les bords sont arrondis */
-  }
-
-  .hero-section {
-    min-height: auto !important; /* Assurez-vous que la hauteur minimale est automatique */
-    padding-top: 1rem !important; /* Réduire le rembourrage supérieur */
-    padding-bottom: 0.5rem !important; /* Réduire le rembourrage inférieur */
   }
     .px-40 {
     padding-left: 1rem !important;
